@@ -32,12 +32,21 @@ public class Task2037 {
                 arr.add(sCur);
         }
 
-        for (int i = 0; i<arr.size(); i++)
-            if (i == (arr.size()-1))
-                System.out.print(arr.get(i));
-            else
-                System.out.print(arr.get(i)+",");
+        if ((st.countTokens() == 0) && n ==0)
+            System.out.print(s);
+        else {
+
+
+            for (int i = 0; i < arr.size(); i++)
+                if (i == (arr.size() - 1))
+                    System.out.print(arr.get(i));
+                else
+                    System.out.print(arr.get(i) + ",");
+            if (arr.size() == 0)
+                System.out.print("");
+        }
+    }
 
 
     }
-}
+

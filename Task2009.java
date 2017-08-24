@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.util.Scanner;
 import static java.lang.Integer.*;
+import java.util.ArrayList;
 
 public class Task2009 {
 
@@ -14,23 +16,28 @@ public class Task2009 {
     Выведите искомую сумму.
      */
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int a, sum;
+    public static void main(String[] args) throws IOException {
+        int a, n, sum;
+        String s, s1;
         sum = 0;
-        int n = scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
         scanner.nextLine();
-        for (int i = 1;i<=n; i++)
+        ArrayList<Integer> arr = new ArrayList<>();
+        for (int  i = 0; i < n; i++)
+            arr.add(scanner.nextInt());
+        for (int i = 0;i<n; i++)
         {
-           a = scanner.nextInt();
-           int sBin = parseInt(toBinaryString(i));
-           String s = Integer.toString(sBin);
-            if (s.replaceAll("0","").equals("1")){
-               sum = sum + a;
 
-           }
+            s = toBinaryString(i+1);
+            s1 = s.replaceAll("0", "");
+               if (s1.equals("1")) {
+                    sum = sum + arr.get(i);
+                }
         }
 
+        if (arr.size() == 1)
+            sum = arr.get(0);
         System.out.print(sum);
 
     }
